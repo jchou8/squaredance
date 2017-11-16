@@ -1,5 +1,5 @@
-# Interactive Game
+# SQUAREDANCE
 
-This repository contains code for an interactive web game, created for the [Client-Side Web Development](https://canvas.uw.edu/courses/1118282) course at the UW iSchool.
+This is a challenging, minimal action game built in Javascript.
 
-The site can be viewed at <https://info343b-a17.github.io/game-yourusername/>
+Check out the game at <https://jchou8.github.io/squaredance/>.
