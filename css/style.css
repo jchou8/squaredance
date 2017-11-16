@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Saira Semi Condensed', sans-serif;
+  background-color: #060606;
+  color: white;
+  font-size: 2rem; }
+
+a {
+  color: #2196f3; }
+  a:hover, a:focus, a:active {
+    color: #6ec6ff; }
+
+header {
+  text-align: center; }
+
+#main {
+  text-align: center;
+  margin-bottom: 5rem; }
+
+.page-footer {
+  background-color: #212121; }
+  .page-footer h1 {
+    margin-bottom: 0; }
+  .page-footer .footer-copyright {
+    text-align: center;
+    background-color: #484848; }
+
+#gamearea {
+  margin: 0 auto; }
+  #gamearea h2 {
+    font-weight: 100;
+    font-size: 3rem;
+    margin: 0 0;
+    padding: 0; }
+  #gamearea p {
+    margin-top: 0; }
+
+canvas {
+  display: inline-block;
+  padding: 0;
+  z-index: 1;
+  width: 600px;
+  height: 450x;
+  background-color: black;
+  border: 1px solid;
+  border-color: white; }
+
+#stats {
+  display: inline-block;
+  text-align: right;
+  margin: 0 0 0 0;
+  color: white;
+  -webkit-transition: color 1s ease;
+  transition: color 1s ease; }
+  #stats #volume {
+    font-weight: 100;
+    font-size: 75%; }
+
+#reset-btn {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666666; }
+  #reset-btn:hover, #reset-btn:focus, #reset-btn:active {
+    color: red; }
+  #reset-btn + h2 {
+    display: inline-block; }
+
+#controls {
+  display: inline-block;
+  text-align: center; }
+  #controls dl {
+    margin-top: 0; }
+  #controls dt {
+    font-weight: 100;
+    font-size: 2rem; }
+  #controls dd {
+    font-size: 1.5rem;
+    margin-left: 0;
+    margin-bottom: 1rem; }
+
+.modal, .modal-content {
+  background-color: #212121;
+  color: white;
+  font-family: 'Saira', sans-serif;
+  font-size: 1.5rem; }
+  .modal #modal-score, .modal-content #modal-score {
+    font-size: 6rem;
+    font-weight: 700;
+    margin: 0; }
+
+#toast-container {
+  font-family: 'Saira', sans-serif;
+  text-align: center;
+  align-items: center;
+  top: auto;
+  right: auto;
+  bottom: 5%;
+  width: 250px;
+  left: 5%; }
+
+.highscore-toast {
+  font-weight: 700; }
+
+.speedup-toast {
+  font-weight: 400; }
+
+@media (min-width: 992px) {
+  #stats {
+    text-align: right;
+    position: absolute;
+    right: calc(50% + 400px);
+    margin: 0 1rem 0 0; }
+
+  #controls {
+    text-align: left;
+    position: absolute;
+    left: calc(50% + 400px);
+    margin: 0 0 0 1rem; }
+
+  canvas {
+    width: 800px;
+    height: 600x; } }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Joseph Chou">
+    <meta name="description" content="A simple Javascript game about avoiding blocks.">
+    <meta name="keywords" content="javascript, game">
+
+    <!-- change theme color on mobile devices -->
+    <meta name="theme-color" content="#263238">
+    <meta name="msapplication-navbutton-color" content="#263238">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#263238">
+
+    <title>SQUAREDANCE</title>
+
+    <!-- frameworks -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- fonts/icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed:100,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Saira:100,400,700" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <header class="container">
+        <h1>SQUAREDANCE</h1>
+    </header>
+
+    <audio loop id="music" aria-hidden="true">
+        <source src="./assets/music.mp3" type="audio/mpeg" />
+        <source src="./assets/music.ogg" type="audio/ogg" /> Your browser does not support the audio tag.
+    </audio>
+
+    <main id="main">
+        <div id="gamearea">
+            <div class="row" id="stats">
+                <div class="col m2 l12">
+                    <h2>TIME</h2>
+                    <p id="timer">
+                        0.0s
+                    </p>
+                </div>
+                <div class="col m2 l12">
+
+                    <h2>SPEED</h2>
+                    <p id="speed" aria-live="polite">
+                        100%
+                    </p>
+                </div>
+                <div class="col m3 l12">
+
+                    <h2>SCORE</h2>
+                    <p id="score">
+                        0
+                    </p>
+                </div>
+                <div class="col m3 l12">
+
+                    <a class="fa fa-refresh" id="reset-btn" title="Reset highscore" aria-label="Reset high score" role="button"></a>
+                    <h2>
+                        BEST
+                    </h2>
+                    <p id="highscore" aria-live="polite">
+                        <br>
+                    </p>
+
+                </div>
+                <div class="col m2 l12">
+                    <!-- Audio indicator -->
+                    <p>
+                        <i class="fa fa-volume-up" id="volume-icon" aria-hidden="true"></i>
+                        <span id="volume" aria-live="polite">Audio On</span>
+                    </p>
+                </div>
+            </div>
+
+            <canvas id="canvas" role="application">
+                Please update your browser to play this game.
+            </canvas>
+
+            <div id="controls">
+                <h2>CONTROLS</h2>
+                <dl class="row">
+                    <div class="col m2 l12">
+                        <dt>Mouse</dt>
+                        <dd>Click and hold to grapple</dd>
+                    </div>
+
+                    <div class="col m2 l12">
+                        <dt>W / ↑</dt>
+                        <dd>Pull towards grapple</dd>
+                    </div>
+
+                    <div class="col m2 l12">
+                        <dt>S / ↓</dt>
+                        <dd>Push away from grapple</dd>
+                    </div>
+
+                    <div class="col m2 l12">
+                        <dt>R</dt>
+                        <dd>Restart</dd>
+                    </div>
+
+                    <div class="col m2 l12">
+                        <dt>P</dt>
+                        <dd>Pause / Resume</dd>
+                    </div>
+
+                    <div class="col m2 l12">
+                        <dt>M</dt>
+                        <dd>Toggle audio</dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+
+        <!-- Hide modal from screen readers since the info is already available and updated in stats -->
+        <div id="highscore-modal" class="modal bottom-sheet" aria-hidden="true">
+            <div class="modal-content">
+                <h2>NEW HIGH SCORE</h2>
+                <p id="modal-score"></p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="container">
+            <h1>credits</h1>
+            <div class="row">
+                <div class="col s12 m6">
+                    <ul>
+                        <li>
+                            Music by
+                            <a href="https://soundcloud.com/ras-11">Ras</a>
+                        </li>
+                        <li>
+                            <a href="https://www.bfxr.net/">Bfxr</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col s12 m6">
+                    <ul>
+                        <li>
+                            <a href="https://github.com/jsantell/dancer.js">dancer.js</a>
+                        </li>
+                        <li>
+                            <a href="http://materializecss.com/">Materialize</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            <div class="container">
+                © 2017 Joseph Chou
+            </div>
+        </div>
+    </footer>
+
+    <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <script src="./js/dancer.min.js"></script>
+    <script src="./js/fontfaceobserver.standalone.js"></script>
+    <script type="text/javascript" src="./js/game.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+// Color palette
+$primary: #212121;
+$plight: #484848;
+$pdark: #060606;
+$secondary: #2196f3;
+$slight: #6ec6ff;
+
+// Overall page styling
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Saira Semi Condensed', sans-serif;
+    background-color: $pdark;
+    color: white;
+    font-size: 2rem;
+}
+
+a {
+    color: $secondary;
+
+    &:hover, &:focus, &:active {
+        color: $slight;
+    }
+}
+
+header {
+    text-align: center;
+}
+
+#main {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.page-footer {
+    background-color: $primary;
+    
+    h1 {
+        margin-bottom: 0;
+    }
+
+    .footer-copyright {
+        text-align: center;
+        background-color: $plight;
+    }
+}
+
+// Area containing game and surrounding info
+#gamearea {
+    margin: 0 auto;
+    
+    h2 {
+        font-weight: 100;
+        font-size: 3rem;
+        margin: 0 0;
+        padding: 0;
+    }
+
+    p {
+        margin-top: 0;
+    }
+}
+
+// Position the canvas
+canvas {
+    display: inline-block;
+    padding: 0;
+    z-index: 1;
+
+    width: 600px;
+    height: 450x;
+
+    background-color: black;
+    border: 1px solid;
+    border-color: white;
+}
+
+// Stat display to the left of game
+#stats {
+    display: inline-block;
+    text-align: right;
+    margin: 0 0 0 0;
+    
+    color: white;
+    -webkit-transition: color 1s ease;
+    transition: color 1s ease;
+
+    #volume {
+        font-weight: 100;
+        font-size: 75%;
+    }
+}
+
+// Button to reset high score
+#reset-btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666666;
+    
+    &:hover, &:focus, &:active {
+        color: red;
+    }
+
+    // Make button appear on same line as heading
+    & + h2 {
+        display: inline-block;
+    }
+}
+
+// Instruction display to the right of game
+#controls {
+    display: inline-block;
+    text-align: center;
+
+    dl {
+        margin-top: 0;
+    }
+
+    dt {
+        font-weight: 100;
+        font-size: 2rem;
+    }
+
+    dd {
+        font-size: 1.5rem;
+        margin-left: 0;
+        margin-bottom: 1rem;
+    }
+}
+
+// Modal styling
+.modal, .modal-content {
+    background-color: $primary;
+    color: white;
+    font-family: 'Saira', sans-serif;
+    font-size: 1.5rem;
+
+    #modal-score {
+        font-size: 6rem;
+        font-weight: 700;
+        margin: 0;
+    }
+}
+
+// Toast styling
+#toast-container {
+    font-family: 'Saira', sans-serif;
+    text-align: center;
+    align-items: center;
+    top: auto;
+    right: auto;
+    bottom: 5%;
+    width: 250px;
+    left: 5%;
+}
+
+.highscore-toast {
+    font-weight: 700;
+}
+
+.speedup-toast {
+    font-weight: 400;
+}
+
+// Significantly expand the header on larger screens and add banner image
+@media (min-width: 992px)
+{
+    #stats {
+        text-align: right;
+        position: absolute;
+        right: calc(50% + 400px);
+        margin: 0 1rem 0 0;
+    }
+
+    #controls {
+        text-align: left;
+        position: absolute;
+        left: calc(50% + 400px);
+        margin: 0 0 0 1rem;
+    }
+
+    canvas {
+        width: 800px;
+        height: 600x;
+    }
+}
